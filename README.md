@@ -62,7 +62,7 @@ Otherthan the previous modules, we have numpy - as we know, it has many uses
 -gravity, length, mass, inertia of wheel and pendulum, max pendulum angle, max angular velocity of pendulum and reaction wheel, dt is the time step we follow here.
 
 1. reset - this just sets the state to some random position
-2. step - First, takes in the action, angular acceleration and updates theta(position of pendulum), omega(angular velocity of pen) and omega_rw(ang. vel. of rw). Then calculates teh torque and resultant angular acceleration of pendulum. From there we go for angular velocity and position.  We calculate the reward considering both position and velocity and we add 1 just to make it positive.
+2. step - First, takes in the action, angular acceleration and updates theta(position of pendulum), omega(angular velocity of pen) and omega_rw(ang. vel. of rw). Then calculates the torque and resultant angular acceleration of pendulum. From there we go for angular velocity and position.  We calculate the reward considering both position and velocity and we add 1 just to make it positive.
 
 An episode is done if angle is greater than max angle or velocity is greater then max angular velocity.
 
