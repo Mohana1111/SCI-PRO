@@ -21,10 +21,14 @@ Action space : This is all that the agent can perform, in this case it is of Dis
 
 1 - to move the cart right
 
-Observation space : This is a Box[ ] of 4 parameters which are, *Cart distance, Cart velocity, Pole angle and Pole angular velocity.
+Observation space : This is a Box[ ] of 4 parameters which are, Cart distance, Cart velocity, Pole angle and Pole angular velocity.
 
 **Training Model** :
-We vectorize our env using DummyVecEnv function and then use the Mlp policy *** , verbose is set to 1 to improve our model with necessarhy hyperparameters. Since we don't have Pytorch, this uses cpu instead of cuda. We train our model for 20000 steps here which can be adjusted. All this is super cool since it learns all of it by itself!!! Kudos to the module!
+We vectorize our env using DummyVecEnv function and then use the Mlp policy, verbose is set to 1 to improve our model with necessarhy hyperparameters. Since we don't have Pytorch, this uses cpu instead of cuda. We train our model for 20000 steps here which can be adjusted. All this is super cool since it learns all of it by itself!!! Kudos to the module!
+
+Now it is important for us to know when an ep actually ends...so first,if pole angle is greater then 12 degrees, or cart position reaches the end, that is greater than 2.4 on either sides and if the length of ep passes 500.
+
+**Reward** : Since the goal is to keep the pole upright for as long as possible, a reward of +1 for every step taken, including the termination step, is allotted. The threshold for rewards is 475 for v1.
 
 Alright, so next is **Evaluation**!
 
